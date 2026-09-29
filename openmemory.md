@@ -3,7 +3,7 @@
 ## Overview
 Marketing site + waitlist for agenyra.space ("The distribution layer for AI"). Repo: github.com/ayushrai-hub/AGENYRA_product (public). Separate from the marketplace app repo `ayushrai-hub/AGENYRA`, which owns the Vercel project named `agenyra` — do not deploy this site there.
 
-Stack: Next.js 16.3 App Router (Turbopack), React 19.2, TypeScript, Tailwind v4 (`@theme` in `src/app/globals.css`), pnpm, Vitest. Supabase (project `agenyra`, ref `sxbqzxqswrvubtjdtfiw`, ap-south-1) stores the waitlist. Vercel region `bom1`.
+Stack: Next.js 16.3 App Router (Turbopack), React 19.2, TypeScript, Tailwind v4 (`@theme` in `src/app/globals.css`), pnpm, Vitest. Supabase (project `agenyra`, ref `sxbqzxqswrvubtjdtfiw`, ap-south-1) stores the waitlist. Vercel project `agenyra-product` (Git-connected, pushes to `main` deploy to production, region `bom1`); domains `agenyra.space` + `www` (308 → apex). DNS lives at GoDaddy; env vars are Production-only, so previews run without a database.
 
 ## Architecture
 - All pages are static server components; only `/waitlist` and `/api/admin/waitlist/export` are dynamic.
