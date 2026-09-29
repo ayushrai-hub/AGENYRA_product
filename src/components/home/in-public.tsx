@@ -1,5 +1,5 @@
 import { STATUS_AS_OF } from "@/content/site";
-import { BUILD_TRACKS, STAGE_INFO } from "@/content/status";
+import { BUILD_TRACKS } from "@/content/status";
 import { ButtonLink } from "../button-link";
 import { Section } from "../section";
 import { StageScale, StageTag } from "../stage";
@@ -36,10 +36,7 @@ export function InPublic() {
                 <StageScale stage={t.stage} />
                 <StageTag stage={t.stage} className="text-fg" />
               </div>
-              <p className="text-[15px] leading-relaxed text-fg-muted md:col-span-5">
-                <span className="sr-only">{STAGE_INFO[t.stage].label}: </span>
-                {t.note}
-              </p>
+              <p className="text-[15px] leading-relaxed text-fg-muted md:col-span-5">{t.note}</p>
             </li>
           ))}
         </ul>
