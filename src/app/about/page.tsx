@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description: "AGENYRA is an independent attempt to rethink how AI software gets distributed.",
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 const BLOCKS = [
   {

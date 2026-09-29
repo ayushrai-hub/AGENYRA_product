@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import { GetInEarly } from "@/components/get-in-early";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { StageTag } from "@/components/stage";
 import type { Stage } from "@/content/status";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Product",
   description:
     "How AGENYRA is designed: a six-stage system that discovers, understands, classifies, matches, distributes and measures AI products.",
-  alternates: { canonical: "/product" },
-};
+  path: "/product",
+});
 
 const PIPELINE: { name: string; does: string; produces: string; stage: Stage }[] = [
   {

@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import { pageMetadata } from "@/lib/metadata";
 import { JOINED_COOKIE, type WaitlistValues } from "@/lib/waitlist/fields";
 import { normalizeSource } from "@/lib/waitlist/validate";
 import { WaitlistForm } from "./waitlist-form";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Join the waitlist",
   description:
     "Join the AGENYRA early network as a builder, user, researcher or partner, and help shape how AI products get distributed.",
-  alternates: { canonical: "/waitlist" },
-};
+  path: "/waitlist",
+});
 
 const PRESETS: Record<string, WaitlistValues> = {
   builder: { role: "ai_builder", interest: ["distribute"] },

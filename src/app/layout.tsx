@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/content/site";
+import { SHARED_OPEN_GRAPH } from "@/lib/metadata";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -34,12 +35,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
-    type: "website",
+    ...SHARED_OPEN_GRAPH,
     url: SITE_URL,
-    siteName: SITE_NAME,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",

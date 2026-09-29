@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import { GetInEarly } from "@/components/get-in-early";
 import { PageHeader } from "@/components/page-header";
 import { StageLegend, StageTag } from "@/components/stage";
 import { PHASES } from "@/content/roadmap";
 import { STATUS_AS_OF } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Roadmap",
   description:
     "AGENYRA's roadmap in four phases: foundation, distribution, network and intelligence. Each phase is marked with its real stage.",
-  alternates: { canonical: "/roadmap" },
-};
+  path: "/roadmap",
+});
 
 export default function RoadmapPage() {
   return (

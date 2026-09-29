@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { GetInEarly } from "@/components/get-in-early";
 import { PageHeader } from "@/components/page-header";
 import { StageLegend, StageTag } from "@/components/stage";
 import { FEATURES, HORIZONS } from "@/content/features";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Features",
   description:
     "The capabilities that make up AGENYRA, grouped by stage: what is being built now, what is being explored, and what comes later.",
-  alternates: { canonical: "/features" },
-};
+  path: "/features",
+});
 
 export default function FeaturesPage() {
   return (

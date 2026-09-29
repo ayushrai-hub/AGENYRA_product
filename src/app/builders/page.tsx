@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import { GetInEarly } from "@/components/get-in-early";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { StageTag } from "@/components/stage";
 import { BUILDER_CAPABILITIES } from "@/content/builders";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Builders",
   description:
     "For AI builders: structured product representation, discovery and distribution beyond a launch. Join the AGENYRA builder waitlist.",
-  alternates: { canonical: "/builders" },
-};
+  path: "/builders",
+});
 
 const PROBLEMS = [
   {
