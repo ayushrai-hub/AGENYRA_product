@@ -1,21 +1,5 @@
+import { CHANNELS, RIGHTS } from "@/content/home";
 import { Section } from "../section";
-
-const RIGHTS = [
-  { k: "Product", v: "The right one, among many that claim to do the same thing." },
-  { k: "Task", v: "Described by what it does, not by the category it was filed under." },
-  { k: "Moment", v: "When the problem exists, not when a launch happens to trend." },
-  { k: "Context", v: "Inside the tools and workflows people already use." },
-];
-
-const CHANNELS = [
-  { name: "Search engines", good: "Matching keywords", misses: "What you are actually trying to do" },
-  { name: "Social platforms", good: "Reach and novelty", misses: "Whether a product fits your problem" },
-  { name: "Product directories", good: "Breadth", misses: "Context. Lists go stale quickly" },
-  { name: "Communities", good: "Trust", misses: "Scale. Answers are scattered across threads" },
-  { name: "Newsletters", good: "Curation", misses: "Timing. They arrive when they arrive" },
-  { name: "Marketplaces", good: "Transactions", misses: "Anything outside one ecosystem" },
-  { name: "Word of mouth", good: "The highest trust", misses: "Anyone outside your circle" },
-];
 
 export function Problem() {
   return (
@@ -67,8 +51,7 @@ export function Problem() {
           ))}
         </ul>
         <p className="reveal font-display mt-12 max-w-[34ch] text-2xl leading-snug sm:text-3xl">
-          AGENYRA is built on the idea that AI distribution should be infrastructure, not an afterthought left to
-          whichever channel happens to notice.
+          None of these channels was built to match a product to a task. That is the gap AGENYRA is being built for.
         </p>
       </div>
     </Section>

@@ -25,7 +25,7 @@ export default function RoadmapPage() {
       <section aria-label="Phases" className="border-t border-line">
         <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 md:py-24">
           <div className="label mb-10 flex justify-between text-fg-subtle">
-            <span>Phases 01 — 04</span>
+            <span>Phases 01–04</span>
             <span>As of {STATUS_AS_OF}</span>
           </div>
           <ol className="relative grid gap-0 lg:grid-cols-4">

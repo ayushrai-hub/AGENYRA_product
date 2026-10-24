@@ -1,3 +1,4 @@
+import type { IconName } from "@/components/icons";
 import type { Stage } from "./status";
 
 export type Horizon = "now" | "exploring" | "later";
@@ -10,6 +11,7 @@ export type Feature = {
   specifics: string[];
   stage: Stage;
   horizon: Horizon;
+  icon: IconName;
   /** Shown on the home page when set; lower comes first. */
   homeOrder?: number;
 };
@@ -18,6 +20,7 @@ export const FEATURES: Feature[] = [
   {
     id: "product-intelligence",
     name: "Product Intelligence",
+    icon: "profile",
     summary: "Understand what an AI product actually does.",
     detail:
       "Each product is described as structured data rather than marketing copy: the task it performs, what it takes in, what it produces, where it runs and what it costs.",
@@ -33,6 +36,7 @@ export const FEATURES: Feature[] = [
   {
     id: "builder-infrastructure",
     name: "Builder Infrastructure",
+    icon: "fields",
     summary: "A structured way for builders to represent their product.",
     detail:
       "Builders describe their product once, in a format the rest of the system can read. The same representation later feeds distribution surfaces and APIs.",
@@ -48,6 +52,7 @@ export const FEATURES: Feature[] = [
   {
     id: "contextual-discovery",
     name: "Contextual Discovery",
+    icon: "search",
     summary: "From keyword lists toward task and intent.",
     detail:
       "Search over structured product data works in the private build. The harder step, matching a described problem to the products that solve it, is still an experiment.",
@@ -63,6 +68,7 @@ export const FEATURES: Feature[] = [
   {
     id: "distribution",
     name: "Distribution",
+    icon: "distribute",
     summary: "Place AI products where relevant users already are.",
     detail:
       "A product page on one website is a single surface. Distribution means representing a product wherever relevant demand shows up, including inside other tools and agents.",
@@ -78,6 +84,7 @@ export const FEATURES: Feature[] = [
   {
     id: "analytics",
     name: "Analytics",
+    icon: "measure",
     summary: "Show builders where discovery and adoption happen.",
     detail:
       "Builders currently see traffic, not context. The goal is to show which tasks, surfaces and audiences lead to a product actually being used.",
@@ -93,6 +100,7 @@ export const FEATURES: Feature[] = [
   {
     id: "integrations",
     name: "Integrations",
+    icon: "sync",
     summary: "Connect AGENYRA to the tools builders already use.",
     detail:
       "Product data should not be re-entered by hand. Integrations would keep profiles in sync with the product itself.",
@@ -106,6 +114,7 @@ export const FEATURES: Feature[] = [
   {
     id: "apis",
     name: "APIs",
+    icon: "api",
     summary: "Programmatic access to the product graph.",
     detail:
       "Once representation and discovery are stable, other applications and agents should be able to query them directly instead of scraping websites.",
@@ -120,6 +129,7 @@ export const FEATURES: Feature[] = [
   {
     id: "network-effects",
     name: "Network Effects",
+    icon: "network",
     summary: "More products and users make every match better.",
     detail:
       "Each product added improves coverage. Each use improves matching. Whether that loop can be built without degrading into a ranking game is an open question.",

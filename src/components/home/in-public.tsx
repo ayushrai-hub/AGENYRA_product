@@ -10,12 +10,12 @@ export function InPublic() {
       id="status"
       index="06"
       label="Status"
-      title="We’re building this in public."
+      title="Where each part stands."
       lede={
         <>
           <p>
-            AGENYRA is still being built. The product, the infrastructure and the distribution model are all evolving.
-            Early users and builders will help shape what comes next.
+            The build is private; its status is not. Each track moves to the next stage only when the work has moved,
+            and this board is edited by hand when it does.
           </p>
         </>
       }
@@ -43,7 +43,7 @@ export function InPublic() {
       </div>
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[13px] text-fg-subtle">
-          Stages, not percentages. Five of them, from Research to Building.
+          Five stages, from Research to Building. No percentages, no estimated dates.
         </p>
         <ButtonLink href="/roadmap" variant="text">
           Roadmap and stage definitions

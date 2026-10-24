@@ -5,9 +5,21 @@ export const SITE_NAME = "AGENYRA";
 export const SITE_TITLE = "AGENYRA — The Distribution Layer for AI";
 
 export const SITE_DESCRIPTION =
-  "AGENYRA is building infrastructure for discovering and distributing AI products.";
+  "AGENYRA describes AI products as structured data (task, inputs, outputs, deployment, price) and matches them to the people who need that task done. In private build.";
 
 export const STATUS_AS_OF = "September 2026";
+
+/** agenyra.space has no mail server yet, so contact goes to a monitored inbox. */
+export const CONTACT_EMAIL = "ayushrai0211@gmail.com";
+
+export const LOCATION = {
+  locality: "Bhopal",
+  region: "Madhya Pradesh",
+  country: "IN",
+  label: "Bhopal, India",
+} as const;
+
+export const SOURCE_URL = "https://github.com/ayushrai-hub/AGENYRA_product";
 
 export const NAV_LINKS = [
   { href: "/product", label: "Product" },

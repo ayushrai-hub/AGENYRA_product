@@ -1,8 +1,9 @@
 import { GetInEarly } from "@/components/get-in-early";
+import { Icon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { StageTag } from "@/components/stage";
-import { BUILDER_CAPABILITIES } from "@/content/builders";
+import { BUILDER_CAPABILITIES, BUILDER_KINDS, BUILDER_PRINCIPLES, BUILDER_PROBLEMS } from "@/content/builders";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -12,55 +13,19 @@ export const metadata = pageMetadata({
   path: "/builders",
 });
 
-const PROBLEMS = [
-  {
-    name: "The spike",
-    body: "Launch day brings attention. A week later it is gone, and many of the people who needed the product were never there to see it.",
-  },
-  {
-    name: "Borrowed channels",
-    body: "Reach depends on platforms optimized for engagement, not fit. When their algorithms change, your distribution changes with them.",
-  },
-  {
-    name: "Unreadable products",
-    body: "Your product is described in marketing copy. Nothing downstream can reliably read what it does, so nothing can match it to a need.",
-  },
-];
-
-const PRINCIPLES = [
-  {
-    name: "Claims carry provenance.",
-    body: "What you report about your product is shown as self-reported until it is verified. Users can always tell the difference.",
-  },
-  {
-    name: "Structure over promotion.",
-    body: "Profiles describe tasks, inputs, outputs and limits. That is what gets matched, so that is what matters.",
-  },
-  {
-    name: "Fit over spend.",
-    body: "Matching is being designed around relevance. How paid placement fits in, if at all, is an open question, and we will say so when it is answered.",
-  },
-  {
-    name: "No pricing yet.",
-    body: "There is nothing to buy today. Early builders will hear about pricing before anyone else.",
-  },
-];
-
-const WHO = ["AI applications", "Agents", "APIs and models", "MCP servers", "Developer tools", "Vertical AI products"];
-
 export default function BuildersPage() {
   return (
     <>
-      <PageHeader eyebrow="For builders" title="Build the product. We help it travel.">
+      <PageHeader eyebrow="For builders" title="Describe your product once, as data.">
         <p>
-          Building an AI product has never been easier. Being found by the people who need it has not kept up.
-          AGENYRA is being built to close that gap.
+          You record what your product does: the task, what it takes in, what it returns, where it runs and what it
+          costs. AGENYRA uses that profile for search and comparison today, and for placement outside this site later.
         </p>
       </PageHeader>
 
       <Section id="problem" index="01" label="The problem" title="A launch is not a distribution strategy.">
         <ol className="grid gap-10 md:grid-cols-3 md:gap-8">
-          {PROBLEMS.map((p, i) => (
+          {BUILDER_PROBLEMS.map((p, i) => (
             <li key={p.name} className="reveal border-t border-line pt-5">
               <p className="label text-fg-subtle">
                 <span className="text-signal">{String(i + 1).padStart(2, "0")}</span>
@@ -82,7 +47,10 @@ export default function BuildersPage() {
         <ul className="border-t border-line">
           {BUILDER_CAPABILITIES.map((c) => (
             <li key={c.name} className="reveal grid gap-2 border-b border-line py-5 sm:grid-cols-12 sm:items-baseline sm:gap-6">
-              <p className="text-fg sm:col-span-4">{c.name}</p>
+              <p className="flex items-center gap-3 text-fg sm:col-span-4">
+                <Icon name={c.icon} className="size-5 shrink-0 text-fg-muted" />
+                {c.name}
+              </p>
               <p className="text-[15px] leading-relaxed text-fg-muted sm:col-span-6">{c.note}</p>
               <div className="sm:col-span-2 sm:text-right">
                 <StageTag stage={c.stage} />
@@ -94,7 +62,7 @@ export default function BuildersPage() {
 
       <Section id="principles" index="03" label="Principles" title="How your product will be treated.">
         <dl className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
-          {PRINCIPLES.map((p) => (
+          {BUILDER_PRINCIPLES.map((p) => (
             <div key={p.name} className="reveal border-t border-line pt-5">
               <dt className="font-display text-2xl">{p.name}</dt>
               <dd className="mt-3 text-[15px] leading-relaxed text-fg-muted">{p.body}</dd>
@@ -111,7 +79,7 @@ export default function BuildersPage() {
         lede={<p>If you build software where AI does the core work, the early builder network is for you.</p>}
       >
         <ul className="flex flex-wrap gap-2">
-          {WHO.map((w) => (
+          {BUILDER_KINDS.map((w) => (
             <li key={w} className="border border-line-strong px-3 py-2 font-mono text-[13px] text-fg-muted">
               {w}
             </li>

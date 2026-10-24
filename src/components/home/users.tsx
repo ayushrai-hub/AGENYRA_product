@@ -1,11 +1,5 @@
+import { DECOMPOSITION } from "@/content/home";
 import { Section } from "../section";
-
-const DECOMPOSITION = [
-  { k: "Task", v: "Extract content, then restructure it" },
-  { k: "Input", v: "PDF and Word documents" },
-  { k: "Output", v: "A structured report" },
-  { k: "Constraints", v: "Private data. Exportable format." },
-];
 
 export function Users() {
   return (
@@ -13,10 +7,11 @@ export function Users() {
       id="users"
       index="05"
       label="For users"
-      title="Stop searching for tools. Start finding what solves the problem."
+      title="Start from the job you need done."
       lede={
         <p>
-          Nobody needs a list of AI tools. They need a specific job done. Discovery should start from the job.
+          A list of AI tools still leaves the matching to you. A described job already contains what to match on:
+          what goes in, what should come out, and the constraints.
         </p>
       }
     >

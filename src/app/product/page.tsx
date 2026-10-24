@@ -1,8 +1,10 @@
 import { GetInEarly } from "@/components/get-in-early";
+import { Icon } from "@/components/icons";
+import { ProfileExample } from "@/components/profile-example";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { StageTag } from "@/components/stage";
-import type { Stage } from "@/content/status";
+import { EXISTS_TODAY, NOT_THIS, PIPELINE } from "@/content/product";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -11,70 +13,6 @@ export const metadata = pageMetadata({
     "How AGENYRA is designed: a six-stage system that discovers, understands, classifies, matches, distributes and measures AI products.",
   path: "/product",
 });
-
-const PIPELINE: { name: string; does: string; produces: string; stage: Stage }[] = [
-  {
-    name: "Discover",
-    does: "Find AI products worth representing. Today, builders submit them. Later, the system also finds them.",
-    produces: "A candidate product",
-    stage: "building",
-  },
-  {
-    name: "Understand",
-    does: "Work out what the product actually does: the task, its inputs and outputs, where it runs, what it costs, and which claims are verified.",
-    produces: "A structured profile",
-    stage: "building",
-  },
-  {
-    name: "Classify",
-    does: "Place the product in a shared taxonomy of tasks and product types, so it can be compared with real alternatives.",
-    produces: "A position in the taxonomy",
-    stage: "building",
-  },
-  {
-    name: "Match",
-    does: "Connect a need to the products that fit it. Today that means search over structured data. Matching on described intent is an experiment.",
-    produces: "A relevant set of products",
-    stage: "experimental",
-  },
-  {
-    name: "Distribute",
-    does: "Put matched products in front of people where the need comes up: profiles, placements in other surfaces, endpoints agents can read.",
-    produces: "Placements",
-    stage: "exploring",
-  },
-  {
-    name: "Measure",
-    does: "Record what happens after discovery: what was viewed, tried, adopted or skipped. Those signals feed back into understanding and matching.",
-    produces: "Signals",
-    stage: "exploring",
-  },
-];
-
-const EXISTS_TODAY = [
-  "A catalog schema with structured product profiles, pricing and claim provenance.",
-  "Search across listings, including full-text and fuzzy matching, and side-by-side comparison.",
-  "Builder onboarding, organization accounts and a listing review workflow.",
-];
-
-const NOT_THIS = [
-  {
-    name: "Not a directory",
-    body: "A directory lists products and leaves the matching to you. AGENYRA is meant to match, place and measure.",
-  },
-  {
-    name: "Not a chatbot",
-    body: "Conversation may become one way in. Underneath, the system is structured product data and matching.",
-  },
-  {
-    name: "Not another AI wrapper",
-    body: "It does not resell a model. It connects people to products that other teams built.",
-  },
-  {
-    name: "Not just a marketplace",
-    body: "A marketplace is one surface. Distribution has to reach past a single website, into other tools and agents.",
-  },
-];
 
 export default function ProductPage() {
   return (
@@ -101,7 +39,8 @@ export default function ProductPage() {
                 <span className="label text-signal">{String(i + 1).padStart(2, "0")}</span>
                 <StageTag stage={s.stage} />
               </div>
-              <h3 className="mt-8 font-mono text-base tracking-[0.16em] uppercase">{s.name}</h3>
+              <Icon name={s.icon} className="mt-8 size-7 text-fg" />
+              <h3 className="mt-4 font-mono text-base tracking-[0.16em] uppercase">{s.name}</h3>
               <p className="mt-3 flex-1 text-[15px] leading-relaxed text-fg-muted">{s.does}</p>
               <p className="mt-6 border-t border-dashed border-line pt-4 text-[14px] text-fg">
                 <span className="label mr-3 text-fg-subtle">Produces</span>
@@ -138,6 +77,7 @@ export default function ProductPage() {
             </li>
           ))}
         </ul>
+        <ProfileExample className="mt-14" />
       </Section>
 
       <Section id="not" index="03" label="Boundaries" title="What AGENYRA is not.">

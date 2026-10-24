@@ -1,16 +1,5 @@
+import { LOOP, TRADITIONAL } from "@/content/home";
 import { Section } from "../section";
-
-const TRADITIONAL = ["Build", "Website", "Hope people find it"];
-
-const LOOP = [
-  { name: "Build", note: "The builder ships the product." },
-  { name: "Understand", note: "What it actually does, for whom, with which inputs and outputs." },
-  { name: "Distribute", note: "Placed on surfaces where relevant demand exists." },
-  { name: "Discover", note: "Found by someone with a matching task." },
-  { name: "Use", note: "Tried on a real problem." },
-  { name: "Measure", note: "Where discovery and adoption actually happened." },
-  { name: "Improve", note: "Understanding and matching get better." },
-];
 
 export function Thesis() {
   return (
@@ -18,11 +7,11 @@ export function Thesis() {
       id="thesis"
       index="02"
       label="Thesis"
-      title="From software discovery to contextual distribution."
+      title="Distribution needs a feedback loop."
       lede={
         <p>
-          Most AI products follow the same path: build it, put up a website, hope. Distribution is whatever the builder
-          can manage alone. We think it should be a system, and a system needs feedback.
+          Most AI products follow the same path: build it, put up a website, hope. Nothing comes back to tell the builder
+          who the product was for or where those people were. AGENYRA is designed so each step reports to the next.
         </p>
       }
     >

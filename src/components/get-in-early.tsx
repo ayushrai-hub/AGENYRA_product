@@ -4,7 +4,8 @@ export function GetInEarly({
   title = "Get in early.",
   body = (
     <>
-      AGENYRA is being built from the ground up. Join the early network and help shape what it becomes.
+      AGENYRA is not open yet. The waitlist is how builders and users get access, and what you tell us in it
+      shapes what gets built first.
     </>
   ),
   cta = "Join the waitlist",

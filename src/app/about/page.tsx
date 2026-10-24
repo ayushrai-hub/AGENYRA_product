@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
+import { ABOUT_BLOCKS, ABOUT_PRINCIPLES } from "@/content/about";
+import { CONTACT_EMAIL } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -7,35 +9,6 @@ export const metadata = pageMetadata({
   description: "AGENYRA is an independent attempt to rethink how AI software gets distributed.",
   path: "/about",
 });
-
-const BLOCKS = [
-  {
-    label: "What we’re building",
-    body: [
-      "A distribution layer for AI software, agents and products. It describes products as structured data, matches them to the problems people actually have, places them where those problems come up, and learns from what happens next.",
-    ],
-  },
-  {
-    label: "Why it matters",
-    body: [
-      "The cost of building AI software keeps falling. The number of products keeps rising. The ways people find them have barely changed: search, social feeds, lists and word of mouth.",
-      "When discovery does not keep up, good products go unused and people keep solving problems by hand that software already solves.",
-    ],
-  },
-  {
-    label: "Current status",
-    body: [
-      "Early. A private build covers structured product representation, a taxonomy, search and builder onboarding. Distribution and intent-based matching are still being explored. Nothing is publicly available yet.",
-    ],
-  },
-];
-
-const PRINCIPLES = [
-  { name: "Say what is real.", body: "Label everything else as planned, experimental or research." },
-  { name: "Structure beats adjectives.", body: "A product is what it does, not how it is described." },
-  { name: "Distribution should reward fit.", body: "The right product for the task should be the easiest one to find." },
-  { name: "Build with the people who will use it.", body: "Early builders and users shape what gets built next." },
-];
 
 export default function AboutPage() {
   return (
@@ -47,7 +20,7 @@ export default function AboutPage() {
 
       <div className="border-t border-line">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-          {BLOCKS.map((b) => (
+          {ABOUT_BLOCKS.map((b) => (
             <section
               key={b.label}
               aria-label={b.label}
@@ -70,7 +43,7 @@ export default function AboutPage() {
             Philosophy
           </h2>
           <ol className="md:col-span-9">
-            {PRINCIPLES.map((p, i) => (
+            {ABOUT_PRINCIPLES.map((p, i) => (
               <li key={p.name} className="reveal grid grid-cols-[2.5rem_1fr] gap-x-4 border-t border-line py-6">
                 <span className="label pt-2 text-signal">{String(i + 1).padStart(2, "0")}</span>
                 <div>
@@ -89,11 +62,22 @@ export default function AboutPage() {
             Contact
           </h2>
           <p className="max-w-[56ch] text-lg leading-relaxed text-fg md:col-span-9">
-            The best way to reach us right now is the{" "}
+            Email{" "}
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="underline decoration-line-strong underline-offset-4 hover:decoration-signal"
+            >
+              {CONTACT_EMAIL}
+            </a>
+            . To get access when AGENYRA opens, use the{" "}
             <Link href="/waitlist" className="underline decoration-line-strong underline-offset-4 hover:decoration-signal">
-              waitlist form
+              waitlist
             </Link>
-            . It goes directly to the people building AGENYRA, and you can tell us what you want it to do.
+            . More on the{" "}
+            <Link href="/contact" className="underline decoration-line-strong underline-offset-4 hover:decoration-signal">
+              contact page
+            </Link>
+            .
           </p>
         </div>
       </section>

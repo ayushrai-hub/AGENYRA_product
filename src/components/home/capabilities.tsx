@@ -1,5 +1,6 @@
 import { FEATURES } from "@/content/features";
 import { ButtonLink } from "../button-link";
+import { Icon } from "../icons";
 import { Section } from "../section";
 import { StageTag } from "../stage";
 
@@ -28,7 +29,8 @@ export function Capabilities() {
               <span className="label text-fg-subtle">{String(i + 1).padStart(2, "0")}</span>
               <StageTag stage={f.stage} />
             </div>
-            <h3 className="font-display mt-10 text-[1.75rem] leading-tight">{f.name}</h3>
+            <Icon name={f.icon} className="mt-10 size-8 text-fg" />
+            <h3 className="font-display mt-5 text-[1.75rem] leading-tight">{f.name}</h3>
             <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">{f.summary}</p>
           </li>
         ))}

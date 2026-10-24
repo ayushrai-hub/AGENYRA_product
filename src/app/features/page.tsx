@@ -1,4 +1,5 @@
 import { GetInEarly } from "@/components/get-in-early";
+import { Icon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import { StageLegend, StageTag } from "@/components/stage";
 import { FEATURES, HORIZONS } from "@/content/features";
@@ -44,7 +45,8 @@ export default function FeaturesPage() {
                 {items.map((f) => (
                   <li key={f.id} id={f.id} className="reveal grid gap-6 border-b border-line py-8 lg:grid-cols-12 lg:gap-8">
                     <div className="lg:col-span-4">
-                      <h3 className="font-display text-[1.75rem] leading-tight">{f.name}</h3>
+                      <Icon name={f.icon} className="size-8 text-fg" />
+                      <h3 className="font-display mt-4 text-[1.75rem] leading-tight">{f.name}</h3>
                       <StageTag stage={f.stage} className="mt-3" />
                     </div>
                     <div className="lg:col-span-8">
@@ -53,9 +55,7 @@ export default function FeaturesPage() {
                       <ul className="mt-5 space-y-2">
                         {f.specifics.map((s) => (
                           <li key={s} className="flex gap-3 text-[15px] text-fg-muted">
-                            <span aria-hidden="true" className="font-mono text-fg-subtle">
-                              —
-                            </span>
+                            <span aria-hidden="true" className="mt-[0.55em] inline-block size-1.5 shrink-0 bg-fg-subtle" />
                             {s}
                           </li>
                         ))}
