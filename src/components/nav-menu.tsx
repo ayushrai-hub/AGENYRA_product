@@ -72,7 +72,7 @@ export function NavMenu() {
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full border-b border-line bg-ink md:hidden"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-ink md:hidden"
       >
         <nav aria-label="Mobile" className="px-5 pb-8 pt-2">
           <ul className="divide-y divide-line border-y border-line">
