@@ -67,7 +67,7 @@ function toValues(data: WaitlistInput): WaitlistValues {
   return {
     name: data.name,
     email: data.email,
-    phone: data.phone ?? "",
+    phone: data.phone,
     company: data.company ?? "",
     website: data.website ?? "",
     linkedin: data.linkedin ?? "",

@@ -9,13 +9,13 @@ function form(entries: Record<string, string | string[]>) {
 
 describe("validateWaitlist", () => {
   it("accepts the minimum required fields and normalizes them", () => {
-    const r = validateWaitlist(form({ name: "  Ada   Lovelace ", email: " Ada@Example.COM " }));
+    const r = validateWaitlist(form({ name: "  Ada   Lovelace ", email: " Ada@Example.COM ", phone: " +44 20 7946 0000 " }));
     expect(r.ok).toBe(true);
     if (!r.ok) return;
     expect(r.data).toMatchObject({
       name: "Ada Lovelace",
       email: "ada@example.com",
-      phone: null,
+      phone: "+44 20 7946 0000",
       website: null,
       role: null,
       interest: [],
@@ -23,16 +23,23 @@ describe("validateWaitlist", () => {
     });
   });
 
-  it("requires name and email", () => {
+  it("requires name, email and phone", () => {
     const r = validateWaitlist(form({}));
     expect(r.ok).toBe(false);
     if (r.ok) return;
-    expect(Object.keys(r.fieldErrors).sort()).toEqual(["email", "name"]);
+    expect(Object.keys(r.fieldErrors).sort()).toEqual(["email", "name", "phone"]);
+  });
+
+  it("rejects a whitespace-only phone", () => {
+    const r = validateWaitlist(form({ name: "X", email: "x@y.io", phone: "   " }));
+    expect(r.ok).toBe(false);
+    if (r.ok) return;
+    expect(r.fieldErrors.phone).toBe("A phone number is required.");
   });
 
   it("rejects invalid email addresses", () => {
     for (const email of ["plainaddress", "a@b", "a@@b.com", "a b@c.com", ".a@b.com", "a..b@c.com", "a@b.c"]) {
-      const r = validateWaitlist(form({ name: "X", email }));
+      const r = validateWaitlist(form({ name: "X", email, phone: "+91 98765 43210" }));
       expect(r.ok, email).toBe(false);
     }
   });

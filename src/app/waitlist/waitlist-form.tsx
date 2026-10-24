@@ -105,7 +105,16 @@ export function WaitlistForm({ alreadyJoined, defaults, source }: Props) {
             values={values}
             errors={errors}
           />
-          <Field name="phone" label="Phone" type="tel" autoComplete="tel" maxLength={LIMITS.phone} values={values} errors={errors} />
+          <Field
+            name="phone"
+            label="Phone"
+            type="tel"
+            required
+            autoComplete="tel"
+            maxLength={LIMITS.phone}
+            values={values}
+            errors={errors}
+          />
           <Field name="company" label="Company" autoComplete="organization" maxLength={LIMITS.company} values={values} errors={errors} />
           <Field
             name="website"

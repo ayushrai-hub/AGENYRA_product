@@ -11,7 +11,7 @@ import {
 export type WaitlistInput = {
   name: string;
   email: string;
-  phone: string | null;
+  phone: string;
   company: string | null;
   website: string | null;
   linkedin: string | null;
@@ -135,7 +135,8 @@ export function validateWaitlist(form: RawForm): ValidationResult {
   if (!email) fieldErrors.email = "An email address is required.";
   else if (!isValidEmail(email)) fieldErrors.email = "That doesn’t look like a valid email address.";
 
-  if (phone && (!PHONE.test(phone) || phone.replace(/\D/g, "").length < 6)) {
+  if (!phone) fieldErrors.phone = "A phone number is required.";
+  else if (!PHONE.test(phone) || phone.replace(/\D/g, "").length < 6) {
     fieldErrors.phone = "Use digits, spaces and an optional leading +.";
   }
 
@@ -160,7 +161,7 @@ export function validateWaitlist(form: RawForm): ValidationResult {
     data: {
       name,
       email,
-      phone: phone || null,
+      phone,
       company: company || null,
       website,
       linkedin,
