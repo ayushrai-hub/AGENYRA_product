@@ -14,16 +14,13 @@ export function FlowDiagram() {
           <span>Fig. 01</span>
           <span>Concept</span>
         </div>
+        {/* No entrance animation on the nodes: they must paint even if animations stall or the page is captured early. */}
         <ol className="relative">
           <span aria-hidden="true" className="absolute bottom-[14px] left-[5px] top-[14px] w-px bg-line-strong">
             <span className="travel absolute left-[-2px] size-[5px] bg-signal" />
           </span>
           {STEPS.map((step, i) => (
-            <li
-              key={step.name}
-              className="rise relative grid grid-cols-[11px_1fr] items-baseline gap-x-5 py-3"
-              style={{ ["--delay" as string]: `${240 + i * 90}ms` }}
-            >
+            <li key={step.name} className="relative grid grid-cols-[11px_1fr] items-baseline gap-x-5 py-3">
               <span
                 aria-hidden="true"
                 className={`relative top-[1px] size-[11px] border ${

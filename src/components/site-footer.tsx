@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS } from "@/content/site";
+import { BUILDER, NAV_LINKS } from "@/content/site";
 import { Wordmark } from "./logo";
 
 export function SiteFooter() {
@@ -10,6 +10,23 @@ export function SiteFooter() {
         <div className="md:col-span-6">
           <Wordmark />
           <p className="font-display mt-6 text-2xl text-fg-muted">The distribution layer for AI.</p>
+          <div className="mt-10">
+            <p className="label text-fg-subtle">Built by {BUILDER.name}</p>
+            <ul className="mt-3 flex gap-6">
+              {BUILDER.links.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    rel="me noopener"
+                    aria-label={`${BUILDER.name} on ${link.label}`}
+                    className="text-[15px] text-fg-muted transition-colors hover:text-fg"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <nav aria-label="Footer" className="md:col-span-6">
           <ul className="grid grid-cols-2 gap-x-8 gap-y-3 sm:grid-cols-3">

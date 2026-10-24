@@ -16,3 +16,12 @@ export const NAV_LINKS = [
   { href: "/roadmap", label: "Roadmap" },
   { href: "/about", label: "About" },
 ] as const;
+
+export const BUILDER = {
+  name: "Ayush Rai",
+  links: [
+    { href: "https://github.com/ayushrai-hub", label: "GitHub" },
+    { href: "https://www.linkedin.com/in/ayushrai02", label: "LinkedIn" },
+    { href: "https://x.com/AyushRai0211", label: "X" },
+  ],
+} as const;
