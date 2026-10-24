@@ -15,10 +15,20 @@ Next.js 16 (App Router), React 19, Tailwind CSS v4, Supabase for waitlist storag
 | `/roadmap` | Phases and stage definitions |
 | `/about` | About |
 | `/waitlist` | Waitlist form (`?as=builder` / `?as=user` preselect role and interest) |
+| `/contact` | Contact email and what to write about |
+| `/privacy` | What the site collects and how to have it removed |
+| `/llms.txt`, `/llms-full.txt` | Site index and full text for AI agents |
 | `/api/admin/waitlist/export` | Token-protected CSV export (not linked anywhere) |
 | `/api/admin/keepalive` | Daily cron that keeps the Supabase project from pausing |
 
 Page copy and build status live in `src/content/`. Stage labels (`building`, `experimental`, `exploring`, `planned`, `research`) are defined once in `src/content/status.ts`; update them there as work moves forward.
+
+## Agents and analytics
+
+- Every page has a Markdown version, generated from `src/content/` by `src/lib/markdown.ts`. Agents get it by sending `Accept: text/markdown` to the normal URL, or by appending `.md` (home is `/index.md`). Both are rewrites to `/markdown/[[...slug]]` in `next.config.ts`; unknown paths return a Markdown 404. Responses carry `Vary: Accept` and are not cached at the CDN.
+- `/llms.txt` tells agents when to use the site and when not to. Keep it honest when the product changes: it is the first thing an agent reads.
+- New pages need an entry in `src/content/pages.ts` (sitemap, `llms.txt`, Markdown routing) and a renderer in `src/lib/markdown.ts`.
+- Vercel Web Analytics is on for the project, and `<Analytics />` is mounted in the root layout. It is cookieless; the privacy page describes it.
 
 ## Local development
 

@@ -6,7 +6,7 @@ import { InPublic } from "@/components/home/in-public";
 import { Problem } from "@/components/home/problem";
 import { Thesis } from "@/components/home/thesis";
 import { Users } from "@/components/home/users";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/content/site";
+import { CONTACT_EMAIL, LOCATION, SITE_DESCRIPTION, SITE_NAME, SITE_URL, SOURCE_URL } from "@/content/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -18,6 +18,21 @@ const jsonLd = {
       url: SITE_URL,
       logo: `${SITE_URL}/icon.svg`,
       description: SITE_DESCRIPTION,
+      email: CONTACT_EMAIL,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: LOCATION.locality,
+        addressRegion: LOCATION.region,
+        addressCountry: LOCATION.country,
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: CONTACT_EMAIL,
+        url: `${SITE_URL}/contact`,
+        availableLanguage: ["en"],
+      },
+      sameAs: [SOURCE_URL],
     },
     {
       "@type": "WebSite",

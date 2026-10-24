@@ -14,8 +14,24 @@ const securityHeaders = [
   },
 ];
 
+const WANTS_MARKDOWN = [{ type: "header" as const, key: "accept", value: ".*text/markdown.*" }];
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/index.md", destination: "/markdown" },
+        { source: "/:page.md", destination: "/markdown/:page" },
+        { source: "/", has: WANTS_MARKDOWN, destination: "/markdown" },
+        {
+          source: "/:path((?!api/|_next/|markdown|llms|sitemap\\.xml|robots\\.txt).+)",
+          has: WANTS_MARKDOWN,
+          destination: "/markdown/:path",
+        },
+      ],
+    };
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

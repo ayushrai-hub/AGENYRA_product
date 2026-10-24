@@ -1,9 +1,14 @@
 import Link from "next/link";
-import { BUILDER, NAV_LINKS } from "@/content/site";
+import { BUILDER, LOCATION, NAV_LINKS } from "@/content/site";
 import { Wordmark } from "./logo";
 
 export function SiteFooter() {
-  const links = [...NAV_LINKS, { href: "/waitlist", label: "Waitlist" }];
+  const links = [
+    ...NAV_LINKS,
+    { href: "/waitlist", label: "Waitlist" },
+    { href: "/contact", label: "Contact" },
+    { href: "/privacy", label: "Privacy" },
+  ];
   return (
     <footer className="border-t border-line">
       <div className="mx-auto grid max-w-[1240px] gap-12 px-5 py-16 sm:px-8 md:grid-cols-12 md:gap-8">
@@ -43,7 +48,12 @@ export function SiteFooter() {
       <div className="border-t border-line">
         <div className="label mx-auto flex max-w-[1240px] flex-col gap-2 px-5 py-6 text-fg-subtle sm:flex-row sm:justify-between sm:px-8">
           <p>© 2026 AGENYRA</p>
-          <p>Built in progress.</p>
+          <p>
+            Private build · {LOCATION.label} ·{" "}
+            <a href="/llms.txt" className="transition-colors hover:text-fg">
+              llms.txt
+            </a>
+          </p>
         </div>
       </div>
     </footer>

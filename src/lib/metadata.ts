@@ -14,7 +14,7 @@ export function pageMetadata({ title, description, path }: { title: string; desc
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, types: { "text/markdown": `${path}.md` } },
     openGraph: {
       ...SHARED_OPEN_GRAPH,
       url: path,
