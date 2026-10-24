@@ -16,6 +16,7 @@ Next.js 16 (App Router), React 19, Tailwind CSS v4, Supabase for waitlist storag
 | `/about` | About |
 | `/waitlist` | Waitlist form (`?as=builder` / `?as=user` preselect role and interest) |
 | `/api/admin/waitlist/export` | Token-protected CSV export (not linked anywhere) |
+| `/api/admin/keepalive` | Daily cron that keeps the Supabase project from pausing |
 
 Page copy and build status live in `src/content/`. Stage labels (`building`, `experimental`, `exploring`, `planned`, `research`) are defined once in `src/content/status.ts`; update them there as work moves forward.
 
@@ -46,6 +47,7 @@ All are server-only. None may be prefixed with `NEXT_PUBLIC_`.
 | `SUPABASE_SERVICE_ROLE_KEY` | yes | Used only in server actions and the export route |
 | `WAITLIST_EXPORT_TOKEN` | for export | 24+ characters. Unset means the export route returns 404 |
 | `WAITLIST_IP_SALT` | recommended | Salt for hashed IPs in rate limiting |
+| `CRON_SECRET` | production | 24+ characters. Authenticates the daily keep-alive cron |
 
 ## Database
 
@@ -63,6 +65,8 @@ supabase db push
 ```
 
 Status and notes are edited in the Supabase table editor.
+
+Supabase pauses free-tier projects after 7 days without activity, which takes the waitlist offline. A Vercel Cron job (`vercel.json`) calls `/api/admin/keepalive` daily to run one small query. If the project is ever paused anyway, restore it from the Supabase dashboard.
 
 ## Waitlist form
 
